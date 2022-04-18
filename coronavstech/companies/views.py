@@ -28,4 +28,6 @@ def send_company_email(request: Request) -> Response:
         from_email="ifssouy001@gmail.com",
         recipient_list=["ifssouy002@gmail.com"],
     )
-    return Response({"status": "success", "info": "email sent successfully"}, status=200)
+    return Response(
+        {"status": "success", "info": "email sent successfully"}, status=200
+    )
