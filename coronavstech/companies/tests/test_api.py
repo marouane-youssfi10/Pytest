@@ -1,23 +1,12 @@
 import json
-from unittest import TestCase
-
 import pytest
-from django.test import Client
+
 from django.urls import reverse
 
 from companies.models import Company
 
 companies_url = reverse("companies-list")
 pytestmark = pytest.mark.django_db
-
-
-class BasicCompanyAPITestCase(TestCase):
-    def setUp(self) -> None:
-        self.client = Client()
-        self.companies_url = reverse("companies-list")
-
-    def tesrDown(self) -> None:
-        pass
 
 
 def test_zero_companies_should_return_empty_list(client) -> None:
@@ -34,7 +23,6 @@ def test_one_company_exists_should_succeed(client) -> None:
     assert response_content.get("name") == test_company.name
     assert response_content.get("application_link") == ""
     assert response_content.get("notes") == ""
-    test_company.delete()
 
 # -------------------------- test post companies --------------------------------
 def test_create_company_without_arguments_should_fail(client) -> None:
