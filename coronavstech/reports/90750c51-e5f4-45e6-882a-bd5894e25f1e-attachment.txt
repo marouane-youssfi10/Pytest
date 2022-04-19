@@ -1,0 +1,1 @@
+[33mWARNING [0m CORONA_LOGS:test_api.py:107 I am logging CoronaVirus Exception

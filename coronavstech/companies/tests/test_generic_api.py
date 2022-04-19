@@ -4,7 +4,7 @@ import json
 
 testing_env_companies_url = "http://127.0.0.1:8000/companies/"
 
-
+'''
 @pytest.mark.skip_in_ci
 @pytest.mark.skip(reason="This test needs localhost django server running")
 def test_zero_companies_django_agnostic() -> None:
@@ -29,10 +29,10 @@ def test_create_company_with_layoffs_django_agnostic() -> None:
 
 def cleanup_company(company_id: str) -> None:
     response = requests.delete(url=f"http://127.0.0.1:8000/companies/{company_id}")
-    assert response.status_code == 204
+    assert response.status_code == 204'''
 
 
-@pytest.mark.crypto
+'''@pytest.mark.crypto
 def test_dogecoin_api() -> None:
     response = requests.get(
         url="https://api.cryptonator.com/api/ticker/doge-usd",
@@ -42,13 +42,13 @@ def test_dogecoin_api() -> None:
     assert response.status_code == 200
     response_content = json.loads(response.content)
     assert response_content["ticker"]["base"] == "DOGE"
-    assert response_content["ticker"]["target"] == "USD"
+    assert response_content["ticker"]["target"] == "USD"'''
 
 
 import responses
 
 
-@pytest.mark.crypto
+'''@pytest.mark.crypto
 @responses.activate
 def test_mocked_dogecoin_api() -> None:
     responses.add(
@@ -69,7 +69,7 @@ def test_mocked_dogecoin_api() -> None:
         status=200,
     )
 
-    assert process_crypto() == 29
+    assert process_crypto() == 29'''
 
 
 def process_crypto() -> int:

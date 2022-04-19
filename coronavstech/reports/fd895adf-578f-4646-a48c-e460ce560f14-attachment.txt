@@ -1,0 +1,1 @@
+[32mINFO    [0m CORONA_LOGS:test_api.py:117 I am logging info level
